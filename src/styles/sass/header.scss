@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+body {
+	height: 2000px;
+}
+
+#header {
+	.navbar {
+		border: {
+			radius: 0;
+			color: #00A0F3;
+		}
+		background: {
+			color: #00A0F3;
+		}
+		
+		.navbar-brand {
+			padding: 0;
+		}
+
+		a {
+			color: #fff;
+		}
+	}
+}

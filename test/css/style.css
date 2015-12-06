@@ -1,0 +1,15 @@
+body {
+  height: 2000px;
+}
+
+#header .navbar {
+  border-radius: 0;
+  border-color: #00A0F3;
+  background-color: #00A0F3;
+}
+#header .navbar .navbar-brand {
+  padding: 0;
+}
+#header .navbar a {
+  color: #fff;
+}

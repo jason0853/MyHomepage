@@ -21,10 +21,10 @@ var Header = React.createClass({
 				    	</Navbar.Header>
 				    	<Navbar.Collapse>
 					      <Nav pullRight>
-					        	<NavItem className="gnb" eventKey={1} href="#">Skill</NavItem>
-					        	<NavItem className="gnb" eventKey={2} href="#">Work</NavItem>
-					        	<NavItem className="gnb" eventKey={2} href="#">SNS</NavItem>
-					        	<NavItem className="gnb" eventKey={2} href="#">Contact</NavItem>
+					        	<NavItem className="gnb" eventKey={1} href="#"><span data-hover="Skill">Skill</span></NavItem>
+					        	<NavItem className="gnb" eventKey={2} href="#"><span data-hover="Work">Work</span></NavItem>
+					        	<NavItem className="gnb" eventKey={3} href="#"><span data-hover="SNS">SNS</span></NavItem>
+					        	<NavItem className="gnb" eventKey={4} href="#"><span data-hover="Contact">Contact</span></NavItem>
 					      </Nav>
 				    	</Navbar.Collapse>
 				</Navbar>

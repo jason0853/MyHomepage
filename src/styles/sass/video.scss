@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+$title-font: 'Courgette', cursive;
+
+#video {
+	video::-webkit-media-controls-start-playback-button {
+	  	display: none !important;
+	  	-webkit-appearance: none;
+	}
+	position: relative;
+	.name {
+		position: absolute;
+		top: 0;
+		left: 20%;
+		font: {
+			family: 'Courgette', cursive;
+			size: 35px;
+		}
+		color: #fff;
+	}
+	.title {
+		position: absolute;
+		top: 40%;
+		width: 100%;
+		margin: 0 auto;
+		font: {
+			family: 'Pacifico', cursive;
+			size: 80px;
+		}
+		color: #fff;
+		text: {
+			align: center;
+		}
+		z-index: 1000;
+	}
+}
+
+/****************************************************************
+*
+*  Set media query
+*
+*****************************************************************/
+
+@media all and (max-width: 900px) {
+	#video {
+		.title {
+			font: {
+				size: 50px;
+			}
+		}
+	}
+}
+
+@media all and (max-width: 640px) {
+	#video {
+		.name {
+			font: {
+				size: 20px;
+			}
+		}
+
+		.title {
+			font: {
+				size: 30px;
+			}
+		}
+	}
+}

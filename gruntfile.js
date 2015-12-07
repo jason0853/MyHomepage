@@ -17,7 +17,8 @@ module.exports = function(grunt) {
 			        	sourcemap: 'none'
 			      },
 			      files: {
-			        	'src/styles/modules/header.css': 'src/styles/sass/header.scss'
+			        	'src/styles/modules/header.css': 'src/styles/sass/header.scss',
+			        	'src/styles/modules/vidoe.css': 'src/styles/sass/video.scss'
 			      }
 			}
 		},
@@ -102,21 +103,20 @@ module.exports = function(grunt) {
 
 		// Fix jsx code and run again automatically 
 		watch: {
-			// sass 파일 수정/추가 시 동작
-		      sass: {
-		        	files: 'src/styles/sass/*.scss',
-		        	tasks: ['sass', 'concat'],
-		        	options: {
-			      	livereload: true
-			    	}
-		      },
+			sass: {
+			        	files: 'src/styles/sass/*.scss',
+			        	tasks: ['sass', 'concat'],
+			        	options: {
+				      	livereload: true
+				}
+			},
 			react: {
 		        		files: 'src/components/**/*.jsx',
 		        		tasks: ['browserify', 'uglify'],
 		        		options: {
 			      		livereload: true
-			    	}
-		      }
+				}
+		      	}
 		}
  	});
 
@@ -140,5 +140,5 @@ module.exports = function(grunt) {
 
  	// registerTasks
  	grunt.registerTask('default', 	['sass', 'concat' ,'browserify', 'connect:test', 'watch']);
- 	grunt.registerTask('run', 		['sass', 'concat', 'cssmin', 'browserify', 'uglify', 'connect:server']);
+ 	grunt.registerTask('run', 	['sass', 'concat', 'cssmin', 'browserify', 'uglify', 'connect:server']);
  };

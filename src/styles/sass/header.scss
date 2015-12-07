@@ -1,4 +1,7 @@
 @charset "UTF-8";
+@import "textSlideEffect";
+
+$header-border-color: #0078ff;
 
 body {
 	height: 2000px;
@@ -6,6 +9,7 @@ body {
 
 #header {
 	.navbar {
+		opacity: 0.9;
 		border: {
 			radius: 0;
 			color: #00A0F3;
@@ -13,13 +17,58 @@ body {
 		background: {
 			color: #00A0F3;
 		}
-		
 		.navbar-brand {
 			padding: 0;
 		}
+		.gnb {
+			a {
+				margin: 13px 0;
+				padding: 0 15px;
+				color: #fff;
+				@include text-base;
+				span {
+					@include text-transition(0.3s);
+					&::before {
+						@include text-transform(0, 0, 0);
+					}
+				}
+				&:hover {
+					span {
+						@include text-transformHover(-100%);
+					}
+				}
+			}
+		}
+		.navbar-toggle {
+			border: {
+				color: $header-border-color;
+				width: 2px;
+			}
+			&:focus, &:hover {
+				background: {
+					color: #148cff;
+				}
+			}
+		}
 
-		a {
-			color: #fff;
+		.navbar-collapse {
+			border: {
+				color: $header-border-color;
+			}
+		}
+	}
+}
+
+/****************************************************************
+*
+*  Set media query
+*
+*****************************************************************/
+
+@media all and (max-width: 768px) {
+	#header {
+		.navbar-nav > li {
+			text-align: center;
 		}
 	}
 }

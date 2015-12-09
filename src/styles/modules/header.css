@@ -1,12 +1,6 @@
-body {
-  height: 2000px;
-}
-
 #header .navbar {
-  opacity: 0.9;
-  border-radius: 0;
-  border-color: #00A0F3;
-  background-color: #00A0F3;
+  border: initial;
+  background-color: initial;
 }
 #header .navbar .navbar-brand {
   padding: 0;
@@ -22,6 +16,7 @@ body {
   font-weight: 400;
 }
 #header .navbar .gnb a span {
+  font-size: 12px;
   position: relative;
   display: inline-block;
   -webkit-transition: -webkit-transform 0.3s;
@@ -38,7 +33,11 @@ body {
   -moz-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
+#header .navbar .gnb a:hover {
+  color: #666;
+}
 #header .navbar .gnb a:hover span {
+  font-weight: bold;
   -webkit-transform: translateY(-100%);
   -moz-transform: translateY(-100%);
   -ms-transform: translateY(-100%);
@@ -46,14 +45,16 @@ body {
   transform: translateY(-100%);
 }
 #header .navbar .navbar-toggle {
-  border-color: #0078ff;
-  border-width: 2px;
+  border-color: #fff;
 }
 #header .navbar .navbar-toggle:focus, #header .navbar .navbar-toggle:hover {
-  background-color: #148cff;
+  background-color: #565656;
 }
 #header .navbar .navbar-collapse {
-  border-color: #0078ff;
+  width: 400px;
+  margin: 0 auto;
+  border: initial;
+  box-shadow: initial;
 }
 
 /****************************************************************
@@ -64,5 +65,12 @@ body {
 @media all and (max-width: 768px) {
   #header .navbar-nav > li {
     text-align: center;
+  }
+  #header .navbar-collapse {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100px !important;
+    background: #222;
   }
 }

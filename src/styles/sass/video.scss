@@ -1,23 +1,11 @@
 @charset "UTF-8";
 
-$title-font: 'Courgette', cursive;
-
 #video {
 	video::-webkit-media-controls-start-playback-button {
 	  	display: none !important;
 	  	-webkit-appearance: none;
 	}
 	position: relative;
-	.name {
-		position: absolute;
-		top: 0;
-		left: 20%;
-		font: {
-			family: 'Courgette', cursive;
-			size: 35px;
-		}
-		color: #fff;
-	}
 	.title {
 		position: absolute;
 		top: 40%;

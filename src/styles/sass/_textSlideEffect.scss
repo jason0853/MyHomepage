@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@mixin text-base {
+@mixin rolling-base {
 	position: relative;
 	display: inline-block;
 	overflow: hidden;
@@ -8,7 +8,7 @@
 	font-weight: 400;
 }
 
-@mixin text-transition($sec) {
+@mixin rolling-transition($sec) {
 	position: relative;
 	display: inline-block;
 	-webkit-transition: 	-webkit-transform $sec;
@@ -17,7 +17,7 @@
 	transition: 		transform $sec;
 }
 
-@mixin text-transform($x, $y, $z) {
+@mixin rolling-transform($x, $y, $z) {
 	position: absolute;
 	top: 100%;
 	content: attr(data-hover);
@@ -27,7 +27,7 @@
 	transform: 		translate3d($x, $y, $z);
 }
 
-@mixin text-transformHover($y) {
+@mixin rolling-transformHover($y) {
 	-webkit-transform: 	translateY($y);
 	-moz-transform: 	translateY($y);
 	-ms-transform: 	translateY($y);

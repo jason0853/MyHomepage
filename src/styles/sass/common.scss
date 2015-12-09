@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+$menu-font: 'Lato', sans-serif;;
+// $basic-font: ;
+
+body {
+	height: 2000px;
+	background: {
+		color: #efefef;
+	}
+	font: {
+		family: $menu-font;
+	}
+}

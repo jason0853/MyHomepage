@@ -17,6 +17,7 @@ module.exports = function(grunt) {
 			        	sourcemap: 'none'
 			      },
 			      files: {
+			      	'src/styles/modules/common.css': 'src/styles/sass/common.scss',
 			        	'src/styles/modules/header.css': 'src/styles/sass/header.scss',
 			        	'src/styles/modules/vidoe.css': 'src/styles/sass/video.scss'
 			      }

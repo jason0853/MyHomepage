@@ -1,21 +1,11 @@
 @charset "UTF-8";
 @import "textSlideEffect";
 
-$header-border-color: #0078ff;
-
-body {
-	height: 2000px;
-}
-
 #header {
 	.navbar {
-		opacity: 0.9;
-		border: {
-			radius: 0;
-			color: #00A0F3;
-		}
+		border: initial;
 		background: {
-			color: #00A0F3;
+			color: initial;
 		}
 		.navbar-brand {
 			padding: 0;
@@ -25,39 +15,50 @@ body {
 				margin: 13px 0;
 				padding: 0 15px;
 				color: #fff;
-				@include text-base;
+				@include rolling-base;
 				span {
-					@include text-transition(0.3s);
+					font: {
+						size: 12px;
+					}
+					@include rolling-transition(0.3s);
 					&::before {
-						@include text-transform(0, 0, 0);
+						@include rolling-transform(0, 0, 0);
 					}
 				}
 				&:hover {
+					color: #666;
 					span {
-						@include text-transformHover(-100%);
+						font: {
+							weight: bold;
+						}
+						@include rolling-transformHover(-100%);
 					}
 				}
 			}
 		}
 		.navbar-toggle {
 			border: {
-				color: $header-border-color;
-				width: 2px;
+				color: #fff;
 			}
 			&:focus, &:hover {
 				background: {
-					color: #148cff;
+					color: #565656;
 				}
 			}
 		}
 
 		.navbar-collapse {
-			border: {
-				color: $header-border-color;
+			width: 400px;
+			margin: 0 auto;
+			border: initial;
+			box: {
+				shadow: initial;
 			}
 		}
 	}
 }
+
+    
 
 /****************************************************************
 *
@@ -69,6 +70,14 @@ body {
 	#header {
 		.navbar-nav > li {
 			text-align: center;
+		}
+
+		.navbar-collapse {
+			position: absolute;
+		    	right: 0;
+		    	top: 0;
+			width: 100px !important;
+			background: #222;
 		}
 	}
 }

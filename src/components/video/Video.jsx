@@ -5,16 +5,13 @@ var Video = React.createClass({
 
 	getDefaultProps: function() {
 		return {
-			name: 'Jason',
 			title: 'Front-end & Full-stack Developer'
 		};
 	},
 
-
 	render: function() {
 		return (
 			<div id="video">
-				<h1 className="name">{this.props.name}</h1>
 				<h2 className="title">{this.props.title}</h2>
 				<video autoPlay loop muted width="100%">
 			   		<source src="video/main_video.mp4" type="video/mp4" />

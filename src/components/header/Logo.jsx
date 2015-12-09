@@ -14,51 +14,43 @@ var Logo = React.createClass({
 		// Define canvas
 		var canvas = d3.select('#logo')
 					.append('svg')
-						.attr('width', 70)
-						.attr('height', 50)
-						.on('mouseover', function(d, i) {						// mouseover event
-							d3.select(this).selectAll('circle').transition()
-								.ease('elastic')
-	  								.duration('1000')
-	  								.attr("r", 23);
-	  							d3.select(this).selectAll('text').transition()
-	  								.ease('cubic-out')
-						            .duration('500')
-						            .attr('x', 24)
-						            .attr('y', 31)
-						            .attr("font-size", 18);
-						})
-						.on('mouseout', function(d, i) {						// mouseout event		
-							d3.select(this).selectAll('circle').transition()
-						            .ease('quad')
-						            .delay('100')
-						            .duration('200')
-						            .attr('r', 20);
+						.attr('width', 100)
+						.attr('height', 70);
 
-						      d3.select(this).selectAll('text').transition()
-	  								.ease('cubic-out')
-	  								.delay('100')
-						            .duration('200')
-						            .attr('x', 27)
-						            .attr('y', 30)
-						            .attr('font-size', 13);
-						});
-
-		// Define circle
-		var circle = canvas.append('circle')
-					.attr('cx', 35)
-					.attr('cy', 25)
-					.attr('r', 20)
-					.style('stroke', '#0078ff')
-					.style('stroke-width', '2')
-					.style('fill', '#148cff'); 
 		// Define text
 		var text = canvas.append('text')
-					.attr('x', 27)
-					.attr('y', 30)
-					.attr('font-size', 13)
-					.style('fill', '#fff')
-					.text('JS');
+						.attr('x', 27)
+						.attr('y', 23)
+						.attr('font-size', 13)
+						.style('fill', '#fff')
+						.style('font-family', 'Pacifico')
+						.on('mouseover', function() {
+							d3.select(this)
+									.transition()
+									.ease('cubic-out')
+									.duration('500')
+									.style('fill', '#333');
+						})
+						.on('mouseout', function() {
+							d3.select(this)
+									.transition()
+									.ease('cubic-out')
+									.delay('100')
+									.duration('200')
+									.style('fill', '#fff');
+						});
+
+		// Append <tspan> to do line break
+		text.append('tspan')
+				.attr('dy', 0)
+				.attr('x', 27)
+				.text('Jaesung');
+
+		text.append('tspan')
+				.attr('dy', '1.3em')
+				.attr('x', 29)
+				.text('Lee');
+					
 	},
 
 });

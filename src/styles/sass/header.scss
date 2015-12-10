@@ -39,12 +39,24 @@
 		}
 
 		.navbar-toggle {
+			margin: {
+				top: 15px;
+			}
+			padding: 5px;
 			border: {
 				color: #fff;
 			}
-			&:focus, &:hover {
+			&:hover {
 				background: {
-					color: #565656;
+					color: #222;
+				}
+			}
+
+			.icon-bar {
+				width: initial;
+				color: #fff;
+				background: {
+					color: initial;
 				}
 			}
 		}
@@ -85,12 +97,12 @@
 			&:hover {
 				span {
 					border: {
-						color: #666;
+						color: #333;
 					}
 					font: {
 						size: 15px;
 					}
-					color: #666;
+					color: #333;
 				}
 			}
 		}
@@ -114,7 +126,7 @@
 		.navbar-collapse {
 			position: absolute;
 		    	right: 0;
-		    	top: 0;
+		    	top: 50px;
 			width: 100px !important;
 			background: #222;
 		}

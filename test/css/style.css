@@ -4,6 +4,100 @@ body {
   font-family: "Lato", sans-serif;
 }
 
+
+@-webkit-keyframes spinning {
+  from {
+    -webkit-transform: rotateX(0deg) rotateY(0deg);
+  }
+  to {
+    -webkit-transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+@-moz-keyframes spinning {
+  from {
+    -moz-transform: rotateX(0deg) rotateY(0deg);
+  }
+  to {
+    -moz-transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+@keyframes spinning {
+  from {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+#cubebox {
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  perspective: 1000px;
+  -webkit-perspective-origin: 50% 50%;
+  -moz-perspective-origin: 50% 50%;
+  perspective-origin: 50% 50%;
+}
+#cubebox .animate {
+  -webkit-animation: spinning 6s infinite linear;
+  -moz-animation: spinning 6s infinite linear;
+  -o-animation: spinning 6s infinite linear;
+  animation: spinning 6s infinite linear;
+}
+#cubebox #cube {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  -webkit-transition: -webkit-transform 2s linear;
+  -moz-transition: -moz-transform 2s linear;
+  -o-transition: -o-transform 2s linear;
+  transition: transform 2s linear;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+#cubebox #cube div {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  padding: 20px;
+  opacity: 0.9;
+  background: red;
+  background-position: center center;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #fff;
+  color: #fff;
+}
+#cubebox #cube div:nth-child(1) {
+  -webkit-transform: translateZ(100px);
+  -moz-transform: translateZ(100px);
+  transform: translateZ(100px);
+}
+#cubebox #cube div:nth-child(2) {
+  -webkit-transform: rotateY(90deg) translateZ(100px);
+  -moz-transform: rotateY(90deg) translateZ(100px);
+  transform: rotateY(90deg) translateZ(100px);
+}
+#cubebox #cube div:nth-child(3) {
+  -webkit-transform: rotateY(180deg) translateZ(100px);
+  -moz-transform: rotateY(180deg) translateZ(100px);
+  transform: rotateY(180deg) translateZ(100px);
+}
+#cubebox #cube div:nth-child(4) {
+  -webkit-transform: rotateY(-90deg) translateZ(100px);
+  -moz-transform: rotateY(-90deg) translateZ(100px);
+  transform: rotateY(-90deg) translateZ(100px);
+}
+#cubebox #cube div:nth-child(5) {
+  -webkit-transform: rotateX(-90deg) translateZ(100px) rotate(180deg);
+  -moz-transform: rotateX(-90deg) translateZ(100px) rotate(180deg);
+  transform: rotateX(-90deg) translateZ(100px) rotate(180deg);
+}
+#cubebox #cube div:nth-child(6) {
+  transform: rotateX(90deg) translateZ(100px);
+}
+
 #header {
   position: relative;
 }
@@ -54,10 +148,17 @@ body {
   transform: translateY(-100%);
 }
 #header .navbar .navbar-toggle {
+  margin-top: 15px;
+  padding: 5px;
   border-color: #fff;
 }
-#header .navbar .navbar-toggle:focus, #header .navbar .navbar-toggle:hover {
-  background-color: #565656;
+#header .navbar .navbar-toggle:hover {
+  background-color: #222;
+}
+#header .navbar .navbar-toggle .icon-bar {
+  width: initial;
+  color: #fff;
+  background-color: initial;
 }
 #header .navbar .navbar-collapse {
   width: 400px;
@@ -85,9 +186,9 @@ body {
   color: #fff;
 }
 #header .navbar #resizeScreen:hover span {
-  border-color: #666;
+  border-color: #333;
   font-size: 15px;
-  color: #666;
+  color: #333;
 }
 
 /****************************************************************
@@ -102,7 +203,7 @@ body {
   #header .navbar-collapse {
     position: absolute;
     right: 0;
-    top: 0;
+    top: 50px;
     width: 100px !important;
     background: #222;
   }
@@ -111,23 +212,9 @@ body {
   }
 }
 
-#video {
-  position: relative;
-}
 #video video::-webkit-media-controls-start-playback-button {
   display: none !important;
   -webkit-appearance: none;
-}
-#video .title {
-  position: absolute;
-  top: 40%;
-  width: 100%;
-  margin: 0 auto;
-  font-family: 'Pacifico', cursive;
-  font-size: 80px;
-  color: #fff;
-  text-align: center;
-  z-index: 1000;
 }
 
 /****************************************************************
@@ -135,16 +222,3 @@ body {
 *  Set media query
 *
 *****************************************************************/
-@media all and (max-width: 900px) {
-  #video .title {
-    font-size: 50px;
-  }
-}
-@media all and (max-width: 640px) {
-  #video .name {
-    font-size: 20px;
-  }
-  #video .title {
-    font-size: 30px;
-  }
-}

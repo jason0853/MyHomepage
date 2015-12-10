@@ -3,24 +3,28 @@ var Navbar = require('react-bootstrap').Navbar;
 var Nav = require('react-bootstrap').Nav;
 var NavItem = require('react-bootstrap').NavItem;
 var Logo = require('./Logo.jsx');
+var ResizeScreen = require('./ResizeScreen.jsx');
 
 var Header = React.createClass({
+	
 	getInitialState: function() {
 		return {
-			expanded: true 
+			expanded: false
 		};
 	},
-	
+
 	handleToggle: function() {
 		this.setState({
-			expanded: false
+			expanded: true
+		}, function() {
+			alert('a');
 		});
 	},
 	
 	render: function() {
 		return (
 			<div id="header">
-				<Navbar onToggle={this.handleToggle} inverse fixedTop>
+				<Navbar inverse fixedTop onToggle={this.handleToggle}>
 				    	<Navbar.Header>
 				      	<Navbar.Brand>
 				        		<a href="#">
@@ -39,6 +43,7 @@ var Header = React.createClass({
 					        	<NavItem className="gnb" eventKey={6} href="#"><span data-hover="CONTACT">CONTACT</span></NavItem>
 					      </Nav>
 				    	</Navbar.Collapse>
+				   	<ResizeScreen />
 				</Navbar>
 			</div>
 		);

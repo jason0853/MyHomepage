@@ -26,18 +26,18 @@ var Logo = React.createClass({
 						.style('font-family', 'Pacifico')
 						.on('mouseover', function() {
 							d3.select(this)
-									.transition()
-									.ease('cubic-out')
-									.duration('500')
-									.style('fill', '#333');
+								.transition()
+								.ease('cubic-out')
+								.duration('500')
+								.style('fill', '#333');
 						})
 						.on('mouseout', function() {
 							d3.select(this)
-									.transition()
-									.ease('cubic-out')
-									.delay('100')
-									.duration('200')
-									.style('fill', '#fff');
+								.transition()
+								.ease('cubic-out')
+								.delay('100')
+								.duration('200')
+								.style('fill', '#fff');
 						});
 
 		// Append <tspan> to do line break

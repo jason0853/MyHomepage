@@ -2,6 +2,7 @@
 @import "textSlideEffect";
 
 #header {
+	position: relative;
 	.navbar {
 		border: initial;
 		background: {
@@ -36,6 +37,7 @@
 				}
 			}
 		}
+
 		.navbar-toggle {
 			border: {
 				color: #fff;
@@ -53,6 +55,43 @@
 			border: initial;
 			box: {
 				shadow: initial;
+			}
+		}
+
+		#resizeScreen {
+			position: absolute;
+			top: 10px;
+			right: 50px;
+			cursor: pointer;
+
+			.glyphicon {
+				padding: 5px;
+				-webkit-transition: font-size 0.5s;
+				-moz-transition: font-size 0.5s;
+				-o-transition: font-size 0.5s;
+				transition: font-size 0.5s;
+				border: {
+					width: 2px;
+					style: solid;
+					color: #fff;
+					radius: 4px;
+				}
+				font: {
+					size: 8px;
+				}
+				color: #fff;
+			}
+
+			&:hover {
+				span {
+					border: {
+						color: #666;
+					}
+					font: {
+						size: 15px;
+					}
+					color: #666;
+				}
 			}
 		}
 	}
@@ -78,6 +117,9 @@
 		    	top: 0;
 			width: 100px !important;
 			background: #222;
+		}
+		#resizeScreen {
+			display: none;
 		}
 	}
 }

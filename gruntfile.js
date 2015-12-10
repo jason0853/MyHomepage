@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 
  		/******************************************************************************
 		*
-		* Stylesheet 처리
+		* Stylesheet processing
 		*
 		******************************************************************************/
 
@@ -19,7 +19,7 @@ module.exports = function(grunt) {
 			      files: {
 			      	'src/styles/modules/common.css': 'src/styles/sass/common.scss',
 			        	'src/styles/modules/header.css': 'src/styles/sass/header.scss',
-			        	'src/styles/modules/vidoe.css': 'src/styles/sass/video.scss'
+			        	'src/styles/modules/video.css': 'src/styles/sass/video.scss'
 			      }
 			}
 		},
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
 
  		/******************************************************************************
 		*
-		* Javascript 처리
+		* Javascript processing
 		*
 		******************************************************************************/
 
@@ -78,7 +78,7 @@ module.exports = function(grunt) {
 
 		/******************************************************************************
 		*
-		* Web Server 처리
+		* Web Server processing
 		*
 		******************************************************************************/
 
@@ -104,13 +104,15 @@ module.exports = function(grunt) {
 
 		// Fix jsx code and run again automatically 
 		watch: {
+			
 			sass: {
 			        	files: 'src/styles/sass/*.scss',
 			        	tasks: ['sass', 'concat'],
 			        	options: {
-				      	livereload: true
+					livereload: true
 				}
 			},
+			
 			react: {
 		        		files: 'src/components/**/*.jsx',
 		        		tasks: ['browserify', 'uglify'],
@@ -134,7 +136,7 @@ module.exports = function(grunt) {
 	*
 	* 구동 명령
 	*
-	* $ grunt 			: Test version compile & run server
+	* $ grunt 		: Test version compile & run server
 	* $ grunt run 		: Build version compile and run server
 	*
 	******************************************************************************/

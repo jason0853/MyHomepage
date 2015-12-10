@@ -4,6 +4,9 @@ body {
   font-family: "Lato", sans-serif;
 }
 
+#header {
+  position: relative;
+}
 #header .navbar {
   border: initial;
   background-color: initial;
@@ -62,6 +65,30 @@ body {
   border: initial;
   box-shadow: initial;
 }
+#header .navbar #resizeScreen {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  cursor: pointer;
+}
+#header .navbar #resizeScreen .glyphicon {
+  padding: 5px;
+  -webkit-transition: font-size 0.5s;
+  -moz-transition: font-size 0.5s;
+  -o-transition: font-size 0.5s;
+  transition: font-size 0.5s;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #fff;
+  border-radius: 4px;
+  font-size: 8px;
+  color: #fff;
+}
+#header .navbar #resizeScreen:hover span {
+  border-color: #666;
+  font-size: 15px;
+  color: #666;
+}
 
 /****************************************************************
 *
@@ -78,6 +105,9 @@ body {
     top: 0;
     width: 100px !important;
     background: #222;
+  }
+  #header #resizeScreen {
+    display: none;
   }
 }
 

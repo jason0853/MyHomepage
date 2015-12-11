@@ -1,6 +1,5 @@
 var React = require('react');
 var $ = require('jquery');
-var CubeBox = require('./CubeBox.jsx');
 
 var Video = React.createClass({
 
@@ -13,10 +12,6 @@ var Video = React.createClass({
 	render: function() {
 		return (
 			<div id="video">
-				{/*
-				<h2 className="title">{this.props.title}</h2>
-				*/}
-				<CubeBox />
 				<video autoPlay loop muted width="100%">
 			   		<source src="video/main_video.mp4" type="video/mp4" />
 			 	</video>

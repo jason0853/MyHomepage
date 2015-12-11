@@ -8,28 +8,56 @@ body {
 @-webkit-keyframes spinning {
   from {
     -webkit-transform: rotateX(0deg) rotateY(0deg);
+    -moz-transform: rotateX(0deg) rotateY(0deg);
+    transform: rotateX(0deg) rotateY(0deg);
   }
   to {
     -webkit-transform: rotateX(360deg) rotateY(360deg);
+    -moz-transform: rotateX(360deg) rotateY(360deg);
+    transform: rotateX(360deg) rotateY(360deg);
   }
 }
 @-moz-keyframes spinning {
   from {
+    -webkit-transform: rotateX(0deg) rotateY(0deg);
     -moz-transform: rotateX(0deg) rotateY(0deg);
+    transform: rotateX(0deg) rotateY(0deg);
   }
   to {
+    -webkit-transform: rotateX(360deg) rotateY(360deg);
     -moz-transform: rotateX(360deg) rotateY(360deg);
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+@-o-keyframes spinning {
+  from {
+    -webkit-transform: rotateX(0deg) rotateY(0deg);
+    -moz-transform: rotateX(0deg) rotateY(0deg);
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  to {
+    -webkit-transform: rotateX(360deg) rotateY(360deg);
+    -moz-transform: rotateX(360deg) rotateY(360deg);
+    transform: rotateX(360deg) rotateY(360deg);
   }
 }
 @keyframes spinning {
   from {
+    -webkit-transform: rotateX(0deg) rotateY(0deg);
+    -moz-transform: rotateX(0deg) rotateY(0deg);
     transform: rotateX(0deg) rotateY(0deg);
   }
   to {
+    -webkit-transform: rotateX(360deg) rotateY(360deg);
+    -moz-transform: rotateX(360deg) rotateY(360deg);
     transform: rotateX(360deg) rotateY(360deg);
   }
 }
 #cubebox {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100;
   -webkit-perspective: 1000px;
   -moz-perspective: 1000px;
   perspective: 1000px;
@@ -44,7 +72,6 @@ body {
   animation: spinning 6s infinite linear;
 }
 #cubebox #cube {
-  position: relative;
   width: 200px;
   height: 200px;
   margin: 0 auto;
@@ -60,14 +87,12 @@ body {
   position: absolute;
   width: 160px;
   height: 160px;
-  padding: 20px;
-  opacity: 0.9;
-  background: red;
-  background-position: center center;
   border-width: 1px;
-  border-style: solid;
+  border-style: dashed;
   border-color: #fff;
   color: #fff;
+  text-align: center;
+  line-height: 160px;
 }
 #cubebox #cube div:nth-child(1) {
   -webkit-transform: translateZ(100px);
@@ -95,7 +120,52 @@ body {
   transform: rotateX(-90deg) translateZ(100px) rotate(180deg);
 }
 #cubebox #cube div:nth-child(6) {
+  -webkit-transform: rotateX(90deg) translateZ(100px);
+  -moz-transform: rotateX(90deg) translateZ(100px);
   transform: rotateX(90deg) translateZ(100px);
+}
+
+/****************************************************************
+*
+*  Set media query
+*
+*****************************************************************/
+@media all and (max-width: 640px) {
+  #cubebox #cube div {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+  }
+  #cubebox #cube div:nth-child(1) {
+    -webkit-transform: translateZ(80px);
+    -moz-transform: translateZ(80px);
+    transform: translateZ(80px);
+  }
+  #cubebox #cube div:nth-child(2) {
+    -webkit-transform: rotateY(90deg) translateZ(80px);
+    -moz-transform: rotateY(90deg) translateZ(80px);
+    transform: rotateY(90deg) translateZ(80px);
+  }
+  #cubebox #cube div:nth-child(3) {
+    -webkit-transform: rotateY(180deg) translateZ(80px);
+    -moz-transform: rotateY(180deg) translateZ(80px);
+    transform: rotateY(180deg) translateZ(80px);
+  }
+  #cubebox #cube div:nth-child(4) {
+    -webkit-transform: rotateY(-90deg) translateZ(80px);
+    -moz-transform: rotateY(-90deg) translateZ(80px);
+    transform: rotateY(-90deg) translateZ(80px);
+  }
+  #cubebox #cube div:nth-child(5) {
+    -webkit-transform: rotateX(-90deg) translateZ(80px) rotate(180deg);
+    -moz-transform: rotateX(-90deg) translateZ(80px) rotate(180deg);
+    transform: rotateX(-90deg) translateZ(80px) rotate(180deg);
+  }
+  #cubebox #cube div:nth-child(6) {
+    -webkit-transform: rotateX(90deg) translateZ(80px);
+    -moz-transform: rotateX(90deg) translateZ(80px);
+    transform: rotateX(90deg) translateZ(80px);
+  }
 }
 
 #header {
@@ -165,6 +235,7 @@ body {
   margin: 0 auto;
   border: initial;
   box-shadow: initial;
+  opacity: 0.9;
 }
 #header .navbar #resizeScreen {
   position: absolute;
@@ -212,6 +283,9 @@ body {
   }
 }
 
+#video {
+  width: 100%;
+}
 #video video::-webkit-media-controls-start-playback-button {
   display: none !important;
   -webkit-appearance: none;

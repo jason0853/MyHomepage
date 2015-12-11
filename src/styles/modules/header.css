@@ -65,6 +65,7 @@
   margin: 0 auto;
   border: initial;
   box-shadow: initial;
+  opacity: 0.9;
 }
 #header .navbar #resizeScreen {
   position: absolute;

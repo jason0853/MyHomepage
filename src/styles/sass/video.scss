@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 #video {
+	width: 100%;
 	video::-webkit-media-controls-start-playback-button {
 	  	display: none !important;
 	  	-webkit-appearance: none;

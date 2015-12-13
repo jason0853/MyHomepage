@@ -53682,7 +53682,7 @@ var ReactDOM = require('react-dom');
 var Header = require('./header/Header.jsx');
 var CubeBox = require('./main/CubeBox.jsx');
 var Video = require('./main/Video.jsx');
-var CV = require('./CV.jsx');
+var CV = require('./main/CV.jsx');
 
 ReactDOM.render(
 	React.createElement("div", {className: "content"}, 
@@ -53693,23 +53693,7 @@ ReactDOM.render(
 	), 
 	document.getElementById('container')
 );
-},{"./CV.jsx":406,"./header/Header.jsx":407,"./main/CubeBox.jsx":410,"./main/Video.jsx":411,"react":404,"react-dom":248}],406:[function(require,module,exports){
-var React = require('react');
-
-var CV = React.createClass({displayName: "CV",
-
-	render: function() {
-		return (
-			React.createElement("div", {id: "cv"}, 
-				React.createElement("h2", null, "Curriculum Vitae")
-			)
-		);
-	}
-
-});
-
-module.exports = CV;
-},{"react":404}],407:[function(require,module,exports){
+},{"./header/Header.jsx":406,"./main/CV.jsx":409,"./main/CubeBox.jsx":410,"./main/Video.jsx":411,"react":404,"react-dom":248}],406:[function(require,module,exports){
 var React = require('react');
 var Navbar = require('react-bootstrap').Navbar;
 var Nav = require('react-bootstrap').Nav;
@@ -53733,11 +53717,11 @@ var Header = React.createClass({displayName: "Header",
 			if (this.state.open === true) {
 				$('#header').find('.icon-bar:eq(0)').removeClass('glyphicon glyphicon-menu-down');
 				$('#header').find('.icon-bar:eq(0)').addClass('glyphicon glyphicon-menu-up');
-				$('#header').find('.navbar-toggle').css('background-color', '#222');
+				// $('#header').find('.navbar-toggle').css('background-color', '#222');
 			} else {
 				$('#header').find('.icon-bar:eq(0)').removeClass('glyphicon glyphicon-menu-up');
 				$('#header').find('.icon-bar:eq(0)').addClass('glyphicon glyphicon-menu-down');
-				$('#header').find('.navbar-toggle').css('background-color', 'initial');
+				// $('#header').find('.navbar-toggle').css('background-color', 'initial');
 			}
 		});
 	},
@@ -53761,7 +53745,7 @@ var Header = React.createClass({displayName: "Header",
 					        	React.createElement(NavItem, {className: "gnb", eventKey: 3, href: "#"}, React.createElement("span", {"data-hover": "APP"}, "APP")), 
 					        	React.createElement(NavItem, {className: "gnb", eventKey: 4, href: "#"}, React.createElement("span", {"data-hover": "SKILL"}, "SKILL")), 
 					        	React.createElement(NavItem, {className: "gnb", eventKey: 5, href: "#"}, React.createElement("span", {"data-hover": "PHOTO"}, "PHOTO")), 
-					        	React.createElement(NavItem, {className: "gnb", eventKey: 6, href: "#"}, React.createElement("span", {"data-hover": "CONTACT"}, "CONTACT"))
+					        	React.createElement(NavItem, {className: "gnb", eventKey: 6, href: "#"}, React.createElement("span", {"data-hover": "BOARD"}, "BOARD"))
 					      )
 				    	), 
 				   	React.createElement(ResizeScreen, null)
@@ -53779,7 +53763,7 @@ var Header = React.createClass({displayName: "Header",
 });
 
 module.exports = Header;
-},{"./Logo.jsx":408,"./ResizeScreen.jsx":409,"jquery":3,"react":404,"react-bootstrap":75}],408:[function(require,module,exports){
+},{"./Logo.jsx":407,"./ResizeScreen.jsx":408,"jquery":3,"react":404,"react-bootstrap":75}],407:[function(require,module,exports){
 var React = require('react');
 var d3 = require('d3');
 
@@ -53838,7 +53822,7 @@ var Logo = React.createClass({displayName: "Logo",
 });
 
 module.exports = Logo;
-},{"d3":1,"react":404}],409:[function(require,module,exports){
+},{"d3":1,"react":404}],408:[function(require,module,exports){
 var React = require('react');
 var $ = require('jquery');
 
@@ -53911,7 +53895,76 @@ var ResizeScreen = React.createClass({displayName: "ResizeScreen",
 });
 
 module.exports = ResizeScreen;
-},{"jquery":3,"react":404}],410:[function(require,module,exports){
+},{"jquery":3,"react":404}],409:[function(require,module,exports){
+var React = require('react');
+var Grid = require('react-bootstrap').Grid;
+var Row = require('react-bootstrap').Row;
+var Col = require('react-bootstrap').Col;
+
+var CV = React.createClass({displayName: "CV",
+
+	render: function() {
+		return (
+			React.createElement("div", {id: "cv"}, 
+				React.createElement("h2", null, "Curriculum Vitae"), 
+				React.createElement(Grid, null, 
+					React.createElement(Row, {className: "show-grid"}, 
+					  	React.createElement(Col, {xs: 12, mdOffset: 1, md: 10}, 
+						  	React.createElement("div", {className: "intro"}, 
+						  		React.createElement("h3", null, "Intro"), 
+								"Though I've started working as a front-end developer in late 2013, I'm so interested in build automation & trend library." + ' ' +
+								"Front-end development is evolving with new library and framework these days. I enjoy learning those skills and making web&app application by using them." + ' ' +
+								"One of my strong advantage is to solve problems, searching documents which is written in English. Even if I have been handling javascript language, I've been" + ' ' + 
+								"studying about server-side language and DB and UI/UX interactive design to collaborate with co-workers smoothly, I trust it could help improve work efficiency of work." + ' ' +														
+								"I'm so proud of my job and I love it, since I've worked in IT field. All I can do is to keep my passion for new skills."
+						  	), 
+						  	React.createElement("div", {className: "edu_ex"}, 
+						  		React.createElement("h3", null, "Education & Experience"), 
+						  		React.createElement("div", {className: "part"}, 
+						  			React.createElement("p", {className: "date_place"}, "Feb. 2015 ~ present - NEMUSOFT Corp., HelloWorld Corp. Seoul"), 
+									React.createElement("p", null, React.createElement("span", {className: "glyphicon glyphicon-ok-circle"}), " Front-end Developer"), 
+									React.createElement("ul", null, 
+										React.createElement("li", null, "Develop websites of public institutions"), 
+										React.createElement("li", null, "Maintain Comico Webtoon Service"), 
+										React.createElement("li", null, "Responsible for Front-end Development")
+									)
+								), 
+						  		React.createElement("div", {className: "part"}, 
+						  			React.createElement("p", {className: "date_place"}, "Dec. 2013 ~ Jan. 2015 - HelloWorld Corp., Seoul"), 
+									React.createElement("p", null, React.createElement("span", {className: "glyphicon glyphicon-ok-circle"}), " Front-end Developer"), 
+									React.createElement("ul", null, 
+										React.createElement("li", null, "Joined Delivery web & mobile web application and Cargo management system project."), 
+										React.createElement("li", null, "Responsive web design"), 
+										React.createElement("li", null, "Responsible for UI development")
+									)
+								), 
+						  		React.createElement("div", {className: "part"}, 
+									React.createElement("p", {className: "date_place"}, "March. 2012 ~ May. 2013 - HandsKorea Corp., Korea "), 
+									React.createElement("p", null, React.createElement("span", {className: "glyphicon glyphicon-ok-circle"}), " Assistant & consultant"), 
+									React.createElement("ul", null, 
+										React.createElement("li", null, "Handle and send documents about foreign teachers to Korea teachers by mail"), 
+										React.createElement("li", null, "Email useful information to foreign teachers"), 
+										React.createElement("li", null, "Summarize resume and cover letter and translate English into Korean"), 
+										React.createElement("li", null, "Organize the event for HSK teachers")
+									)
+								), 
+						  		React.createElement("div", {className: "part"}, 
+						  			React.createElement("p", {className: "date_place"}, "Mar. 2006 ~ Feb. 2012 - University of Yongin, Korea"), 
+									React.createElement("p", null, React.createElement("span", {className: "glyphicon glyphicon-ok-circle"}), " Bachelor of Art - English")
+								)
+
+						  	)
+					  	)
+					)
+				  )
+			)
+		);
+	}
+
+});
+
+module.exports = CV;
+},{"react":404,"react-bootstrap":75}],410:[function(require,module,exports){
 var React = require('react');
 var $ = require('jquery');
 

@@ -1,0 +1,69 @@
+@charset "UTF-8";
+
+$basic-font: 'Vollkorn', serif;
+
+#cv {
+	font: {
+		family: $basic-font;
+	}
+	h2 {
+
+		margin: {
+			top: 100px;
+			bottom: 50px;
+		}
+		font: {
+			weight: bold;
+		}
+		text-align: center;
+	}
+	h3 {
+		font: {
+			weight: 500;
+		}
+		color: #666;
+		text-align: left;
+	}
+	.intro {
+		margin: {
+			bottom: 50px
+		}
+		text: {
+			align: left;
+		}
+		line: {
+			height: 30px;
+		}
+		letter: {
+			spacing: 0.8px;
+		}
+	}
+
+	.edu_ex {
+		.part{
+			.date_place {
+				color: #aaa;
+			}
+			p {
+				color: #666;
+				text: {
+					indent: 25px;
+				}
+				.glyphicon {
+					display: inline;
+					top: 3px;
+				}
+			}
+			ul {
+				li {
+					color: #666;
+					line: {
+						height: 25px;
+					}
+				}
+			}
+		}
+	}
+
+
+}

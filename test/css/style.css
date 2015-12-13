@@ -1,5 +1,4 @@
 body {
-  height: 2000px;
   background-color: #efefef;
   font-family: "Lato", sans-serif;
 }
@@ -233,6 +232,42 @@ body {
     -moz-transform: rotateX(90deg) translateZ(50px);
     transform: rotateX(90deg) translateZ(50px);
   }
+}
+
+#cv {
+  font-family: "Vollkorn", serif;
+}
+#cv h2 {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  font-weight: bold;
+  text-align: center;
+}
+#cv h3 {
+  font-weight: 500;
+  color: #666;
+  text-align: left;
+}
+#cv .intro {
+  margin-bottom: 50px;
+  text-align: left;
+  line-height: 30px;
+  letter-spacing: 0.8px;
+}
+#cv .edu_ex .part .date_place {
+  color: #aaa;
+}
+#cv .edu_ex .part p {
+  color: #666;
+  text-indent: 25px;
+}
+#cv .edu_ex .part p .glyphicon {
+  display: inline;
+  top: 3px;
+}
+#cv .edu_ex .part ul li {
+  color: #666;
+  line-height: 25px;
 }
 
 #header {

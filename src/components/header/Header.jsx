@@ -21,11 +21,11 @@ var Header = React.createClass({
 			if (this.state.open === true) {
 				$('#header').find('.icon-bar:eq(0)').removeClass('glyphicon glyphicon-menu-down');
 				$('#header').find('.icon-bar:eq(0)').addClass('glyphicon glyphicon-menu-up');
-				$('#header').find('.navbar-toggle').css('background-color', '#222');
+				// $('#header').find('.navbar-toggle').css('background-color', '#222');
 			} else {
 				$('#header').find('.icon-bar:eq(0)').removeClass('glyphicon glyphicon-menu-up');
 				$('#header').find('.icon-bar:eq(0)').addClass('glyphicon glyphicon-menu-down');
-				$('#header').find('.navbar-toggle').css('background-color', 'initial');
+				// $('#header').find('.navbar-toggle').css('background-color', 'initial');
 			}
 		});
 	},
@@ -49,7 +49,7 @@ var Header = React.createClass({
 					        	<NavItem className="gnb" eventKey={3} href="#"><span data-hover="APP">APP</span></NavItem>
 					        	<NavItem className="gnb" eventKey={4} href="#"><span data-hover="SKILL">SKILL</span></NavItem>
 					        	<NavItem className="gnb" eventKey={5} href="#"><span data-hover="PHOTO">PHOTO</span></NavItem>
-					        	<NavItem className="gnb" eventKey={6} href="#"><span data-hover="CONTACT">CONTACT</span></NavItem>
+					        	<NavItem className="gnb" eventKey={6} href="#"><span data-hover="BOARD">BOARD</span></NavItem>
 					      </Nav>
 				    	</Navbar.Collapse>
 				   	<ResizeScreen />

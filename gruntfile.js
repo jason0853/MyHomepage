@@ -116,11 +116,11 @@ module.exports = function(grunt) {
 			
 			react: {
 		        		files: 'src/components/**/*.jsx',
-		        		tasks: ['browserify', 'uglify'],
+		        		tasks: ['browserify'],
 		        		options: {
 			      		livereload: true
 				}
-		      	}
+		      }
 		}
  	});
 
@@ -144,5 +144,5 @@ module.exports = function(grunt) {
 
  	// registerTasks
  	grunt.registerTask('default', 	['sass', 'concat' ,'browserify', 'connect:test', 'watch']);
- 	grunt.registerTask('run', 	['sass', 'concat', 'cssmin', 'browserify', 'uglify', 'connect:server']);
+ 	grunt.registerTask('run', 		['sass', 'concat', 'cssmin', 'browserify', 'uglify', 'connect:server']);
  };

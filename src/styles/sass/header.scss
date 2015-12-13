@@ -93,8 +93,28 @@
 					size: 8px;
 				}
 				color: #fff;
-			}
 
+				&.glyphicon-resize-small {
+					border: {
+						color: #fff;
+					}
+					font: {
+						size: 15px;
+					}
+					color: #fff;
+
+					&:hover {
+						border: {
+							color: #333;
+						}
+						font: {
+							size: 8px;
+						}
+						color: #333;
+					}
+				}
+			}
+		
 			&:hover {
 				span {
 					border: {

@@ -124,10 +124,25 @@
 *
 *****************************************************************/
 @media all and (max-width: 640px) {
+  #cubebox {
+    -webkit-perspective: 800px;
+    -moz-perspective: 800px;
+    perspective: 800px;
+    -webkit-perspective-origin: 50% 50%;
+    -moz-perspective-origin: 50% 50%;
+    perspective-origin: 50% 50%;
+  }
+  #cubebox #cube {
+    width: 80px;
+    height: 80px;
+  }
   #cubebox #cube div {
     width: 100px;
     height: 100px;
     line-height: 100px;
+  }
+  #cubebox #cube div {
+    font-size: 12px;
   }
   #cubebox #cube div:nth-child(1) {
     -webkit-transform: translateZ(80px);
@@ -158,5 +173,57 @@
     -webkit-transform: rotateX(90deg) translateZ(80px);
     -moz-transform: rotateX(90deg) translateZ(80px);
     transform: rotateX(90deg) translateZ(80px);
+  }
+}
+@media all and (max-width: 380px) {
+  #cubebox {
+    -webkit-perspective: 600px;
+    -moz-perspective: 600px;
+    perspective: 600px;
+    -webkit-perspective-origin: 50% 50%;
+    -moz-perspective-origin: 50% 50%;
+    perspective-origin: 50% 50%;
+  }
+  #cubebox #cube {
+    width: 50px;
+    height: 50px;
+  }
+  #cubebox #cube div {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+  }
+  #cubebox #cube div {
+    font-size: 10px;
+  }
+  #cubebox #cube div:nth-child(1) {
+    -webkit-transform: translateZ(50px);
+    -moz-transform: translateZ(50px);
+    transform: translateZ(50px);
+  }
+  #cubebox #cube div:nth-child(2) {
+    -webkit-transform: rotateY(90deg) translateZ(50px);
+    -moz-transform: rotateY(90deg) translateZ(50px);
+    transform: rotateY(90deg) translateZ(50px);
+  }
+  #cubebox #cube div:nth-child(3) {
+    -webkit-transform: rotateY(180deg) translateZ(50px);
+    -moz-transform: rotateY(180deg) translateZ(50px);
+    transform: rotateY(180deg) translateZ(50px);
+  }
+  #cubebox #cube div:nth-child(4) {
+    -webkit-transform: rotateY(-90deg) translateZ(50px);
+    -moz-transform: rotateY(-90deg) translateZ(50px);
+    transform: rotateY(-90deg) translateZ(50px);
+  }
+  #cubebox #cube div:nth-child(5) {
+    -webkit-transform: rotateX(-90deg) translateZ(50px) rotate(180deg);
+    -moz-transform: rotateX(-90deg) translateZ(50px) rotate(180deg);
+    transform: rotateX(-90deg) translateZ(50px) rotate(180deg);
+  }
+  #cubebox #cube div:nth-child(6) {
+    -webkit-transform: rotateX(90deg) translateZ(50px);
+    -moz-transform: rotateX(90deg) translateZ(50px);
+    transform: rotateX(90deg) translateZ(50px);
   }
 }

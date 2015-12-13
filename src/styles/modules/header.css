@@ -86,6 +86,16 @@
   font-size: 8px;
   color: #fff;
 }
+#header .navbar #resizeScreen .glyphicon.glyphicon-resize-small {
+  border-color: #fff;
+  font-size: 15px;
+  color: #fff;
+}
+#header .navbar #resizeScreen .glyphicon.glyphicon-resize-small:hover {
+  border-color: #333;
+  font-size: 8px;
+  color: #333;
+}
 #header .navbar #resizeScreen:hover span {
   border-color: #333;
   font-size: 15px;

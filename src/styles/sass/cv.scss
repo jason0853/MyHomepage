@@ -40,6 +40,9 @@ $basic-font: 'Vollkorn', serif;
 	}
 
 	.edu_ex {
+		margin: {
+			bottom: 50px
+		}
 		.part{
 			.date_place {
 				color: #aaa;
@@ -61,6 +64,20 @@ $basic-font: 'Vollkorn', serif;
 						height: 25px;
 					}
 				}
+			}
+		}
+	}
+
+	.skill {
+		#barChart {
+			svg {
+				display: block;
+				margin: {
+					left: auto;
+					right: auto;
+				}
+				background: red;
+
 			}
 		}
 	}

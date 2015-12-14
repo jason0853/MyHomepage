@@ -2,6 +2,7 @@ var React = require('react');
 var Grid = require('react-bootstrap').Grid;
 var Row = require('react-bootstrap').Row;
 var Col = require('react-bootstrap').Col;
+var Skill = require('./Skill.jsx');
 
 var CV = React.createClass({
 
@@ -54,14 +55,21 @@ var CV = React.createClass({
 						  			<p className="date_place">Mar. 2006 ~ Feb. 2012 - University of Yongin, Korea</p>
 									<p><span className="glyphicon glyphicon-ok-circle"></span> Bachelor of Art - English</p>
 								</div>
-
+						  	</div>
+						  	<div className="skill">
+						  		<h3>Skill</h3>
+						  		<Skill />
 						  	</div>
 					  	</Col>
 					</Row>
 				  </Grid>
 			</div>
 		);
-	}
+	},
+
+	componentDidMount: function() {
+
+	},
 
 });
 

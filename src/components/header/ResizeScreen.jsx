@@ -10,15 +10,13 @@ var ResizeScreen = React.createClass({
 	},
 
 	updateScreenDimension: function() {
-		
+
+		var isFullScreen = document.mozFullScreen || document.webkitIsFullScreen;
+
 		if (!document.fullscreenElement &&
 		      !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) { 
 			this.setState({
 				resizeState: false 
-			});
-		} else {
-			this.setState({
-				resizeState: true 
 			});
 		}
 	},
@@ -53,7 +51,7 @@ var ResizeScreen = React.createClass({
 		    	this.setState({ resizeState: false });
 		}
 	},
-
+	
 	render: function() {
 		var text = this.state.resizeState ? 'small' : 'full';
 		return (
@@ -65,6 +63,13 @@ var ResizeScreen = React.createClass({
 
 	componentDidMount: function() {
 		window.addEventListener('resize', this.updateScreenDimension);
+
+		$(document).on('keydown', function(e) {
+			if (e.which == 122) {
+				return false;
+			}
+		});
+		
 	}
 
 });

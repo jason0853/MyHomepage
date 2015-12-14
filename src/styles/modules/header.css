@@ -6,6 +6,8 @@
   background-color: initial;
 }
 #header .navbar .navbar-brand {
+  position: absolute;
+  left: 20px;
   padding: 0;
 }
 #header .navbar .gnb a {

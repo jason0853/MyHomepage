@@ -11,6 +11,7 @@ var Skill = React.createClass({
 	},
 
 	componentDidMount: function() {
+		var flag = false;
 		// See D3 margin convention
 		var margin = { top: 20, right: 10, bottom: 100, left: 40}
 		      width = $('#barChart').width() - margin.right - margin.left;
@@ -61,14 +62,14 @@ var Skill = React.createClass({
 				xScale.domain(data.map(function(d) { return d.language; }) );
 				yScale.domain([0, 100]);
 
-				// Draw the bars
+				// Draw the bars  
 				svg.selectAll('rect')
 					.data(data)
 					.enter()
 					.append('rect')
 					.attr('height', 0)
 					.attr('y', height)
-					.attr('rx', '15px')
+					.attr('rx', '5px')
 					.transition().duration(3000)
 					.delay(function(d, i) { return i * 200 })
 					.attr({
@@ -114,15 +115,16 @@ var Skill = React.createClass({
 		function ShowDrawBarChart(width, height) {
 
 			var documentHeight = $(document).height();
-			var startPoint = documentHeight - ( $('#video').height() + $('#intro').height() + $('#CV').height() + 700);
+			var startPoint = documentHeight - ($('#barChart').height() + $('.contact').height() + 200);
 			var scrollTop = $(window).scrollTop();
 
-			
-			if (scrollTop >= startPoint) {
-					d3.select('#barChart').select('svg').remove();
-					DrawBarChart(width, height);
-			} else {
+			if (scrollTop >= startPoint && !flag) {
+				DrawBarChart(width, height);
+				flag = true;
+			}
+			if (scrollTop < startPoint && flag) {
 				d3.select('#barChart').select('svg').remove();
+				flag = false;
 			}
 		}
 
@@ -130,6 +132,8 @@ var Skill = React.createClass({
 			d3.select('#barChart').select('svg').remove();
 			DrawBarChart(width, height);
 		}
+
+
 
 		d3.select(window).on('scroll', ShowDrawBarChart);
 		d3.select(window).on('resize', ResizeDrawBarChart);

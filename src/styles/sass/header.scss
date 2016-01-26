@@ -38,11 +38,22 @@
 					}
 				}
 			}
+			&.selected {
+				a {
+					color: #666;
+					span {
+						font: {
+							weight: bold;
+						}
+						@include rolling-transformHover(-100%);	
+					}
+				}
+			}
 		}
 
 		.navbar-toggle {
 			margin: {
-				top: 15px;
+				top: 12px;
 			}
 			padding: 5px;
 			border: {
@@ -129,6 +140,17 @@
 				}
 			}
 		}
+	}
+	.navbar.show {
+		opacity: 0.8;
+		background: {
+			color: #111;
+		}
+		-webkit-transition: background-color 1000ms linear;
+	    	-moz-transition: background-color 1000ms linear;
+	    	-o-transition: background-color 1000ms linear;
+	    	-ms-transition: background-color 1000ms linear;
+	    	transition: background-color 1000ms linear;
 	}
 }
 

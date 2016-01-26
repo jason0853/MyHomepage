@@ -23,7 +23,7 @@ var CubeBox = React.createClass({
 		// Define #vid element variable
 		var vidElem = document.getElementById('vid');
 		
-		// Occur event after Video is load
+		// Occur event after Video is loadaddEventListener
 		vidElem.addEventListener('loadeddata', function() {
 			var videoHeight = $('#vid').height();
 			var cubeboxHeight = $('#cubebox').height();

@@ -55,6 +55,20 @@
   margin-left: auto;
   margin-right: auto;
 }
+#cv .contact {
+  clear: both;
+}
+#cv .contact #contact {
+  color: #666;
+}
+#cv .contact #contact textarea.form-control {
+  height: 150px;
+}
+#cv .contact #contact .btn-primary {
+  border-color: #666;
+  background-color: #666;
+  color: #fff;
+}
 #cv text {
   font-size: 11px;
 }

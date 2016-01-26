@@ -53680,21 +53680,73 @@ module.exports = require('./lib/React');
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Header = require('./header/Header.jsx');
+var SNS = require('./sns/SNS.jsx');
+var Content = require('./Content.jsx');
+
+ReactDOM.render(
+	React.createElement("div", {className: "app"}, 
+		React.createElement(Header, null), 
+		React.createElement(Content, null), 
+		React.createElement(SNS, null)
+	),
+	document.getElementById('container')
+);
+},{"./Content.jsx":406,"./header/Header.jsx":407,"./sns/SNS.jsx":415,"react":404,"react-dom":248}],406:[function(require,module,exports){
+var React = require('react');
 var CubeBox = require('./main/CubeBox.jsx');
 var Video = require('./main/Video.jsx');
 var CV = require('./main/CV.jsx');
+var $ = require('jquery');
 
-ReactDOM.render(
-	React.createElement("div", {className: "content"}, 
-		React.createElement(Header, null), 
-		React.createElement(CubeBox, null), 
-		React.createElement(Video, null), 
-		React.createElement(CV, null)
-	), 
-	document.getElementById('container')
-);
-},{"./header/Header.jsx":406,"./main/CV.jsx":409,"./main/CubeBox.jsx":410,"./main/Video.jsx":412,"react":404,"react-dom":248}],406:[function(require,module,exports){
+var Carousel = require('react-bootstrap').Carousel;
+var CarouselItem = require('react-bootstrap').CarouselItem;
+
+
+var Content = React.createClass({displayName: "Content",
+	getInitialState: function() {
+		return {
+			index: 0
+		};
+	},
+
+	render: function() {
+		return (
+			React.createElement("div", {className: "content"}, 
+				React.createElement(Carousel, {
+					ref: "carousel", 
+					controls: false, 
+					indicators: false, 
+					activeIndex: this.state.index
+				}, 
+				    	React.createElement(CarouselItem, null, 
+				      	React.createElement(Video, null)
+				    	), 
+				    	React.createElement(CarouselItem, null, 
+				      	React.createElement(CV, null)
+				    	), 
+				    	React.createElement(CarouselItem, null, 
+				      	React.createElement(CubeBox, null)
+				    	), 
+				    	React.createElement(CarouselItem, null, 
+				      	React.createElement(Video, null)
+				    	), 
+				    	React.createElement(CarouselItem, null, 
+				      	React.createElement(CV, null)
+				    	), 
+				    	React.createElement(CarouselItem, null, 
+				      	React.createElement(CubeBox, null)
+				    	)
+				)
+			)
+		);
+	},
+
+});
+
+module.exports = Content;
+},{"./main/CV.jsx":410,"./main/CubeBox.jsx":412,"./main/Video.jsx":414,"jquery":3,"react":404,"react-bootstrap":75}],407:[function(require,module,exports){
 var React = require('react');
+var ReactDOM = require('react-dom');
 var Navbar = require('react-bootstrap').Navbar;
 var Nav = require('react-bootstrap').Nav;
 var NavItem = require('react-bootstrap').NavItem;
@@ -53725,7 +53777,7 @@ var Header = React.createClass({displayName: "Header",
 			}
 		});
 	},
-	
+
 	render: function() {
 		return (
 			React.createElement("div", {id: "header"}, 
@@ -53740,7 +53792,7 @@ var Header = React.createClass({displayName: "Header",
 				    	), 
 				    	React.createElement(Navbar.Collapse, null, 
 					      React.createElement(Nav, null, 
-					        	React.createElement(NavItem, {className: "gnb", eventKey: 1, href: "#"}, React.createElement("span", {"data-hover": "CV"}, "CV")), 
+					        	React.createElement(NavItem, {className: "gnb selected", eventKey: 1, href: "#"}, React.createElement("span", {"data-hover": "CV"}, "CV")), 
 					        	React.createElement(NavItem, {className: "gnb", eventKey: 2, href: "#"}, React.createElement("span", {"data-hover": "WEB"}, "WEB")), 
 					        	React.createElement(NavItem, {className: "gnb", eventKey: 3, href: "#"}, React.createElement("span", {"data-hover": "APP"}, "APP")), 
 					        	React.createElement(NavItem, {className: "gnb", eventKey: 4, href: "#"}, React.createElement("span", {"data-hover": "SKILL"}, "SKILL")), 
@@ -53753,17 +53805,22 @@ var Header = React.createClass({displayName: "Header",
 			)
 		);
 	},
-
+	
 	componentDidMount: function() {
 		// Added classname to toggle button
 		$('#header').find('.icon-bar:eq(0)').addClass('glyphicon glyphicon-menu-down');
 
-
+		// Control menu className
+		$('.gnb').click(function() {
+			// $('.gnb').removeClass('selected');
+			// $(this).addClass('selected');
+		});
 	},
+
 });
 
 module.exports = Header;
-},{"./Logo.jsx":407,"./ResizeScreen.jsx":408,"jquery":3,"react":404,"react-bootstrap":75}],407:[function(require,module,exports){
+},{"./Logo.jsx":408,"./ResizeScreen.jsx":409,"jquery":3,"react":404,"react-bootstrap":75,"react-dom":248}],408:[function(require,module,exports){
 var React = require('react');
 var d3 = require('d3');
 
@@ -53822,7 +53879,7 @@ var Logo = React.createClass({displayName: "Logo",
 });
 
 module.exports = Logo;
-},{"d3":1,"react":404}],408:[function(require,module,exports){
+},{"d3":1,"react":404}],409:[function(require,module,exports){
 var React = require('react');
 var $ = require('jquery');
 
@@ -53900,12 +53957,14 @@ var ResizeScreen = React.createClass({displayName: "ResizeScreen",
 });
 
 module.exports = ResizeScreen;
-},{"jquery":3,"react":404}],409:[function(require,module,exports){
+},{"jquery":3,"react":404}],410:[function(require,module,exports){
 var React = require('react');
 var Grid = require('react-bootstrap').Grid;
 var Row = require('react-bootstrap').Row;
 var Col = require('react-bootstrap').Col;
 var Skill = require('./Skill.jsx');
+var Contact = require('./Contact.jsx');
+var $ = require('jquery');
 
 var CV = React.createClass({displayName: "CV",
 
@@ -53927,7 +53986,7 @@ var CV = React.createClass({displayName: "CV",
 						  	React.createElement("div", {className: "edu_ex"}, 
 						  		React.createElement("h3", null, "Education & Experience"), 
 						  		React.createElement("div", {className: "part"}, 
-						  			React.createElement("p", {className: "date_place"}, "Feb. 2015 ~ present - NEMUSOFT Corp., HelloWorld Corp. Seoul"), 
+						  			React.createElement("p", {className: "date_place"}, "Feb. 2015 ~ present - NEMUSOFT Corp., Seoul"), 
 									React.createElement("p", null, React.createElement("span", {className: "glyphicon glyphicon-ok-circle"}), " Front-end Developer"), 
 									React.createElement("ul", null, 
 										React.createElement("li", null, "Develop websites of public institutions"), 
@@ -53962,6 +54021,10 @@ var CV = React.createClass({displayName: "CV",
 						  	React.createElement("div", {className: "skill"}, 
 						  		React.createElement("h3", null, "Skill"), 
 						  		React.createElement(Skill, null)
+						  	), 
+						  	React.createElement("div", {className: "contact"}, 
+						  		React.createElement("h3", null, "Contact"), 
+						  		React.createElement(Contact, null)
 						  	)
 					  	)
 					)
@@ -53971,13 +54034,57 @@ var CV = React.createClass({displayName: "CV",
 	},
 
 	componentDidMount: function() {
+		// Define #vid element variable
+		var vidElem = document.getElementById('vid');
+		
+		// Occur event after Video is loadaddEventListener
+		vidElem.addEventListener('loadeddata', function() {
 
+			// Add navbar style
+			$(window).scroll(function() {
+				var videoHeight = $('#video').height();
+				var currentPosition = $(window).scrollTop();
+				
+				if (currentPosition > videoHeight) {
+					$('.navbar') .addClass('show');
+				} else {
+					$('.navbar') .removeClass('show');
+				}
+			});
+		}, false);
+
+		
 	},
 
 });
 
 module.exports = CV;
-},{"./Skill.jsx":411,"react":404,"react-bootstrap":75}],410:[function(require,module,exports){
+},{"./Contact.jsx":411,"./Skill.jsx":413,"jquery":3,"react":404,"react-bootstrap":75}],411:[function(require,module,exports){
+var React = require('react');
+var Input = require('react-bootstrap').Input;
+var ButtonInput = require('react-bootstrap').ButtonInput;
+
+var Contact = React.createClass({displayName: "Contact",
+
+	render: function() {
+		return (
+			React.createElement("div", {id: "contact"}, 
+				React.createElement("form", null, 
+					React.createElement(Input, {type: "email", label: "* Email Address", placeholder: "Enter email"}), 
+					React.createElement(Input, {type: "text", label: "* Subject", placeholder: "Enter subject"}), 
+					React.createElement(Input, {type: "textarea", label: "* Message", placeholder: "Enter content"}), 
+					React.createElement("div", {className: "text-right"}, 
+						React.createElement(ButtonInput, {type: "submit", bsStyle: "primary", value: "Submit"})
+					)
+				)
+			)
+		);
+	}
+
+});
+
+module.exports = Contact;
+},{"react":404,"react-bootstrap":75}],412:[function(require,module,exports){
 var React = require('react');
 var $ = require('jquery');
 
@@ -54003,7 +54110,7 @@ var CubeBox = React.createClass({displayName: "CubeBox",
 		// Define #vid element variable
 		var vidElem = document.getElementById('vid');
 		
-		// Occur event after Video is load
+		// Occur event after Video is loadaddEventListener
 		vidElem.addEventListener('loadeddata', function() {
 			var videoHeight = $('#vid').height();
 			var cubeboxHeight = $('#cubebox').height();
@@ -54033,7 +54140,7 @@ var CubeBox = React.createClass({displayName: "CubeBox",
 });
 
 module.exports = CubeBox;
-},{"jquery":3,"react":404}],411:[function(require,module,exports){
+},{"jquery":3,"react":404}],413:[function(require,module,exports){
 var React = require('react');
 var d3 = require('d3');
 var $ = require('jquery');
@@ -54047,6 +54154,7 @@ var Skill = React.createClass({displayName: "Skill",
 	},
 
 	componentDidMount: function() {
+		var flag = false;
 		// See D3 margin convention
 		var margin = { top: 20, right: 10, bottom: 100, left: 40}
 		      width = $('#barChart').width() - margin.right - margin.left;
@@ -54097,14 +54205,14 @@ var Skill = React.createClass({displayName: "Skill",
 				xScale.domain(data.map(function(d) { return d.language; }) );
 				yScale.domain([0, 100]);
 
-				// Draw the bars
+				// Draw the bars  
 				svg.selectAll('rect')
 					.data(data)
 					.enter()
 					.append('rect')
 					.attr('height', 0)
 					.attr('y', height)
-					.attr('rx', '15px')
+					.attr('rx', '5px')
 					.transition().duration(3000)
 					.delay(function(d, i) { return i * 200 })
 					.attr({
@@ -54150,15 +54258,16 @@ var Skill = React.createClass({displayName: "Skill",
 		function ShowDrawBarChart(width, height) {
 
 			var documentHeight = $(document).height();
-			var startPoint = documentHeight - ( $('#video').height() + $('#intro').height() + $('#CV').height() + 700);
+			var startPoint = documentHeight - ($('#barChart').height() + $('.contact').height() + 200);
 			var scrollTop = $(window).scrollTop();
 
-			
-			if (scrollTop >= startPoint) {
-					d3.select('#barChart').select('svg').remove();
-					DrawBarChart(width, height);
-			} else {
+			if (scrollTop >= startPoint && !flag) {
+				DrawBarChart(width, height);
+				flag = true;
+			}
+			if (scrollTop < startPoint && flag) {
 				d3.select('#barChart').select('svg').remove();
+				flag = false;
 			}
 		}
 
@@ -54167,6 +54276,8 @@ var Skill = React.createClass({displayName: "Skill",
 			DrawBarChart(width, height);
 		}
 
+
+
 		d3.select(window).on('scroll', ShowDrawBarChart);
 		d3.select(window).on('resize', ResizeDrawBarChart);
 	},
@@ -54174,7 +54285,7 @@ var Skill = React.createClass({displayName: "Skill",
 });
 
 module.exports = Skill;
-},{"d3":1,"jquery":3,"react":404}],412:[function(require,module,exports){
+},{"d3":1,"jquery":3,"react":404}],414:[function(require,module,exports){
 var React = require('react');
 var $ = require('jquery');
 
@@ -54205,4 +54316,84 @@ var Video = React.createClass({displayName: "Video",
 });
 
 module.exports = Video;
-},{"jquery":3,"react":404}]},{},[405,406,407,408,409,410,411,412]);
+},{"jquery":3,"react":404}],415:[function(require,module,exports){
+var React = require('react');
+var $ = require('jquery');
+var d3 = require('d3');
+
+var SNS = React.createClass({displayName: "SNS",
+
+	render: function() {
+		return (
+			React.createElement("div", {id: "sns"}
+			)
+		);
+	},
+
+	componentDidMount: function() {
+		
+		var width = $('#sns').width();
+		var height = $('#sns').height();
+		var dataSet = [
+			{logo: 't', url: 'https://twitter.com/js0853'},
+			{logo: 'f', url: 'https://www.facebook.com/js0853'},
+			{logo: 'i', url: 'https://www.instagram.com/js0853/'}
+		];
+
+		var svg = d3.select('#sns').append('svg')
+					.attr('width', width)
+					.attr('height', height);
+
+		var buttonGroup = svg.selectAll('g')
+							.data(dataSet)
+							.enter()
+							.append('a')
+							.attr("xlink:href", function(d) { return d.url; })
+							.style('text-decoration', 'none')
+							.append('g')
+							.attr('transform', function(d, i) {  return 'translate('+ width / 2 + ',' + (i+3) * 32 + ')'; })
+							.on("mouseover", function(d,i) {
+						        	d3.select(this).selectAll('circle').transition()
+						        		.style('fill', '#565656')
+						            	.ease('elastic')
+						            	.duration('500')
+						            	.attr('r', 17)
+						      	d3.select(this).selectAll('text').transition()
+						      		.style('fill', '#fff')
+						            	.ease('elastic')
+						            	.duration('500')
+						            	.attr('font-size', 25);
+						    	})
+							.on("mouseout", function(d,i) {
+						        	d3.select(this).selectAll('circle').transition()
+						            	.style('fill', '#fff')
+						            	.ease('quad')
+						            	.delay('100')
+						            	.duration('200')
+						            	.attr('r', 12);
+						        	d3.select(this).selectAll('text').transition()
+						        		.style('fill', '#565656')
+						            	.ease('quad')
+						            	.delay('100')
+						            	.duration('200')
+						            	.attr('font-size', 20);
+						  	});
+
+		buttonGroup.append('circle')
+			.attr('r', 12)
+			.attr('fill', '#fff')
+			.attr('cursor', 'pointer');
+
+		buttonGroup.append('text')
+			.attr('x', -2)
+			.attr('y', 7)
+			.attr('font-size', 20)
+			.attr('cursor', 'pointer')
+			.style('fill', '#565656')
+			.text(function(d) { return d.logo; });
+	},
+
+});
+
+module.exports = SNS;
+},{"d3":1,"jquery":3,"react":404}]},{},[405,406,407,408,409,410,411,412,413,414,415]);

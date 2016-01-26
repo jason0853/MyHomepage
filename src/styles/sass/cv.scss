@@ -88,6 +88,25 @@ $basic-font: 'Vollkorn', serif;
 			}
 		}
 	}
+
+	.contact {
+		clear: both;
+		#contact {
+			color: #666;
+			textarea.form-control {
+				height: 150px;
+			}
+			.btn-primary {
+				border: {
+					color: #666;
+				}
+				background: {
+					color: #666;
+				}
+				color: #fff;
+			}
+		}
+	}
 	
 
 	/* barchart style */

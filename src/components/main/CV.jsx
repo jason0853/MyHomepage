@@ -3,6 +3,8 @@ var Grid = require('react-bootstrap').Grid;
 var Row = require('react-bootstrap').Row;
 var Col = require('react-bootstrap').Col;
 var Skill = require('./Skill.jsx');
+var Contact = require('./Contact.jsx');
+var $ = require('jquery');
 
 var CV = React.createClass({
 
@@ -24,7 +26,7 @@ var CV = React.createClass({
 						  	<div className="edu_ex">
 						  		<h3>Education & Experience</h3>
 						  		<div className="part">
-						  			<p className="date_place">Feb. 2015 ~ present - NEMUSOFT Corp., HelloWorld Corp. Seoul</p>
+						  			<p className="date_place">Feb. 2015 ~ present - NEMUSOFT Corp., Seoul</p>
 									<p><span className="glyphicon glyphicon-ok-circle"></span> Front-end Developer</p>
 									<ul>
 										<li>Develop websites of public institutions</li>
@@ -60,6 +62,10 @@ var CV = React.createClass({
 						  		<h3>Skill</h3>
 						  		<Skill />
 						  	</div>
+						  	<div className="contact">
+						  		<h3>Contact</h3>
+						  		<Contact />
+						  	</div>
 					  	</Col>
 					</Row>
 				  </Grid>
@@ -68,7 +74,26 @@ var CV = React.createClass({
 	},
 
 	componentDidMount: function() {
+		// Define #vid element variable
+		var vidElem = document.getElementById('vid');
+		
+		// Occur event after Video is loadaddEventListener
+		vidElem.addEventListener('loadeddata', function() {
 
+			// Add navbar style
+			$(window).scroll(function() {
+				var videoHeight = $('#video').height();
+				var currentPosition = $(window).scrollTop();
+				
+				if (currentPosition > videoHeight) {
+					$('.navbar') .addClass('show');
+				} else {
+					$('.navbar') .removeClass('show');
+				}
+			});
+		}, false);
+
+		
 	},
 
 });

@@ -49,8 +49,19 @@
   -o-transform: translateY(-100%);
   transform: translateY(-100%);
 }
+#header .navbar .gnb.selected a {
+  color: #666;
+}
+#header .navbar .gnb.selected a span {
+  font-weight: bold;
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
 #header .navbar .navbar-toggle {
-  margin-top: 15px;
+  margin-top: 12px;
   padding: 5px;
   border-color: #fff;
 }
@@ -102,6 +113,15 @@
   border-color: #333;
   font-size: 15px;
   color: #333;
+}
+#header .navbar.show {
+  opacity: 0.8;
+  background-color: #111;
+  -webkit-transition: background-color 1000ms linear;
+  -moz-transition: background-color 1000ms linear;
+  -o-transition: background-color 1000ms linear;
+  -ms-transition: background-color 1000ms linear;
+  transition: background-color 1000ms linear;
 }
 
 /****************************************************************

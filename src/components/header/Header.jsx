@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 var Navbar = require('react-bootstrap').Navbar;
 var Nav = require('react-bootstrap').Nav;
 var NavItem = require('react-bootstrap').NavItem;
@@ -29,7 +30,7 @@ var Header = React.createClass({
 			}
 		});
 	},
-	
+
 	render: function() {
 		return (
 			<div id="header">
@@ -44,7 +45,7 @@ var Header = React.createClass({
 				    	</Navbar.Header>
 				    	<Navbar.Collapse>
 					      <Nav>
-					        	<NavItem className="gnb" eventKey={1} href="#"><span data-hover="CV">CV</span></NavItem>
+					        	<NavItem className="gnb selected" eventKey={1} href="#"><span data-hover="CV">CV</span></NavItem>
 					        	<NavItem className="gnb" eventKey={2} href="#"><span data-hover="WEB">WEB</span></NavItem>
 					        	<NavItem className="gnb" eventKey={3} href="#"><span data-hover="APP">APP</span></NavItem>
 					        	<NavItem className="gnb" eventKey={4} href="#"><span data-hover="SKILL">SKILL</span></NavItem>
@@ -57,13 +58,18 @@ var Header = React.createClass({
 			</div>
 		);
 	},
-
+	
 	componentDidMount: function() {
 		// Added classname to toggle button
 		$('#header').find('.icon-bar:eq(0)').addClass('glyphicon glyphicon-menu-down');
 
-
+		// Control menu className
+		$('.gnb').click(function() {
+			// $('.gnb').removeClass('selected');
+			// $(this).addClass('selected');
+		});
 	},
+
 });
 
 module.exports = Header;

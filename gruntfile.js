@@ -21,7 +21,8 @@ module.exports = function(grunt) {
 			        	'src/styles/modules/header.css': 'src/styles/sass/header.scss',
 			        	'src/styles/modules/video.css': 'src/styles/sass/video.scss',
 			        	'src/styles/modules/cubeBox.css': 'src/styles/sass/cubeBox.scss',
-			        	'src/styles/modules/cv.css': 'src/styles/sass/cv.scss'
+			        	'src/styles/modules/cv.css': 'src/styles/sass/cv.scss',
+			        	'src/styles/modules/sns.css': 'src/styles/sass/sns.scss',
 			      }
 			}
 		},

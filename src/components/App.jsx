@@ -1,16 +1,14 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Header = require('./header/Header.jsx');
-var CubeBox = require('./main/CubeBox.jsx');
-var Video = require('./main/Video.jsx');
-var CV = require('./main/CV.jsx');
+var SNS = require('./sns/SNS.jsx');
+var Content = require('./Content.jsx');
 
 ReactDOM.render(
-	<div className="content">
+	<div className="app">
 		<Header />
-		<CubeBox />
-		<Video />
-		<CV />
-	</div>, 
+		<Content />
+		<SNS />
+	</div>,
 	document.getElementById('container')
 );
